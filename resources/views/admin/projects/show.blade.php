@@ -11,8 +11,11 @@
         <div class="text-center">
             <img src="{{asset('storage/' . $project->thumb)}}" class="card-img-top mb-4" style="width: 18rem;" alt="Project Thumb">
         </div>
-
-        <div>{{$project->title}}</div>
+        <div class="text-center mb-5">
+            <h1>{{$project->title}}</h1>
+            <small>{{$project->type?->name}}</small>
+        </div>
+        
         <div>{{$project->description}}</div>
         <div>{{$project->url}}</div>
         <div>{{$project->programs}}</div>

@@ -10,10 +10,14 @@ class Project extends Model
 {
     use HasFactory;
 
-    //softdeletes
+    // softdeletes
     use SoftDeletes;
 
-    //fillable
+    // fillable
     protected $fillable = ['title', 'description', 'url', 'programs' ];
 
+    // foreign
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
 }
