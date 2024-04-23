@@ -6,9 +6,14 @@
 
         <h4 class="pb-5 ">Welcome {{$user->name}}</h4>
 
-        <div>
+        <div class="mb-5">
             View all the projects
             <a href="{{route('admin.projects.index')}}">here</a>
+        </div>
+
+        <div>
+            Organize the Types of projects
+            <a href="{{route('admin.types.index')}}">here</a>
         </div>
 
     </div>
