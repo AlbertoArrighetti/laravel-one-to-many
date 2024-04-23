@@ -11,7 +11,7 @@ class StoreTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,22 @@ class StoreTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:255',
+            'description' => 'nullable|max:2000',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'required' => 'Il campo: :attribute deve essere inserito per proseguire.',
+            'max' => 'Il campo: :attribute deve contenere massimo :max caratteri.',
+        ];
+    }
+    public function attributes(): array
+    {
+        return [
+            'name' => 'Nome',
+            'description' => 'Descrizione',
         ];
     }
 }
