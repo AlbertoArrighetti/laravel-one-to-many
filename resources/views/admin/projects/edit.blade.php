@@ -30,12 +30,7 @@
                 @enderror
         </div>
 
-
-
-
-
         <div class="mb-3">
-            
             <div>
                 <img src="{{asset('storage/' . $project->thumb)}}" class="card-img-top mb-2" style="width: 18rem;" alt="Project Thumb">
             </div>
@@ -48,10 +43,6 @@
                 @enderror
         </div>
 
-
-
-        
-
         <div class="mb-3">
             <label for="url" class="form-label">Link to the project :</label>
             <input type="text" required class="form-control @error('url') is-invalid @enderror" id="url" name="url" value="{{old('url') ?? $project->url}}">
@@ -62,16 +53,30 @@
                 @enderror
         </div>
 
-        <div class="mb-3">
-            <label for="programs" class="form-label">Programs used :</label>
-            <input type="text" required class="form-control @error('programs') is-invalid @enderror" id="programs" name="programs" value="{{old('programs') ?? $project->programs}}">
+        <div class="row">
+            <div class="mb-3 col-6">
+                <label for="programs" class="form-label">Programs used :</label>
+                <input type="text" required class="form-control @error('programs') is-invalid @enderror" id="programs" name="programs" value="{{old('programs') ?? $project->programs}}">
                 @error('programs')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
                 @enderror
+            </div>
+            
+            {{-- type --}}
+            <div class="mb-3 col-6">
+                <div class="form-label">Select a Type for your project :</div>
+                <select class="form-select" name="type_id" id="type_id">
+
+                    <option value=""></option>
+
+                    @foreach ($types as $type)
+                    <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type ? $project->type->id : '') ? 'selected' : '' }}>{{$type->name}}</option>                       
+                    @endforeach
+                </select>
+            </div>
         </div>
-        
         
 
 
