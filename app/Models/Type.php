@@ -9,9 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Type extends Model
 {
     use HasFactory;
-    
-    //softdeletes
-    use SoftDeletes;
 
     //fillable
     protected $fillable = ['name', 'description'];
